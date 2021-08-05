@@ -15,8 +15,7 @@ async function getAsync(name) {
         if (!name) {
             return await db.collection("users").find().toArray()
         }
-        var result = await db.collection("users").findOne({ name: name });
-        return result;
+        return await db.collection("users").findOne({ name: name });
     } catch (e) {
         throw e;
     } 

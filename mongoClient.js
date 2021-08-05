@@ -1,5 +1,4 @@
 const { MongoClient } = require('mongodb');
 const { mongoUri } = require('./config');
-const uri = mongoUri;
-const client = new MongoClient(uri)
+const client = new MongoClient(mongoUri)
 module.exports.client = client;
