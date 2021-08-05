@@ -1,5 +1,7 @@
-// config.js
+// external imports
 const dotenv = require('dotenv');
+
+// Declaration
 dotenv.config();
 
 module.exports = {

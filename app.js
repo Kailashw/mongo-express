@@ -1,6 +1,8 @@
+// import
 const { app } = require('./server')
 const { getAsync, postAsync } = require('./models/users')
 
+// define routes
 app.get("/", (req, res) => {
     res.sendFile(__dirname + '/static/homepage/index.html');
 })
