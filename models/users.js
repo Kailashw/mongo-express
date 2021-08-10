@@ -1,11 +1,12 @@
-const { client } = require('../mongoClient');
-const db = client.db('sample_airbnb');
+const { client } = require('../utils/mongoClient');
+const {db_name}=require('../utils/config')
+const db = client.db(db_name);
 
 // used to post(create) new user object in mongo collection.
+
 async function postAsync(payload) {
     try {
-        let cursor = await db.collection("users").insertOne(payload)
-        return cursor;
+        return await db.collection("users").insertOne(payload)
     } catch (e) {
        throw e;
     } 
@@ -18,8 +19,9 @@ async function getAsync(name) {
         if (!name) {
             return await db.collection("users").find().toArray()
         }
-        return await db.collection("users").findOne({ name: name });
+        return await db.collection("users").findOne({ name: name});
     } catch (e) {
+        console.log(`e ==> `, e );
         throw e;
     } 
 }
